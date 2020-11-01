@@ -5,7 +5,7 @@ function bind(fn, ...rest) {
     throw new Error(`Expected function but got the ${typeof fn[0]}`);
   }
   if (!obj) {
-    throw new Error(`Expected object but got the ${typeof rest[1]}`);
+    throw new Error(`Expected object but got the ${typeof rest[0]}`);
   }
   // Getting the remaining arguments from bind
   const remainingArgs = rest.slice(1, rest.length);

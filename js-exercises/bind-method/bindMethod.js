@@ -2,7 +2,7 @@
 function bind(fn, ...rest) {
   const obj = rest[0] && typeof rest[0] === 'object' ? rest[0] : false;
   if (typeof fn !== 'function') {
-    throw new Error(`Expected function but got the ${typeof fn[0]}`);
+    throw new Error(`Expected function but got the ${typeof fn}`);
   }
   if (!obj) {
     throw new Error(`Expected object but got the ${typeof rest[0]}`);

@@ -3,7 +3,7 @@ function curry(fn) {
     throw new Error(`Expected function but got ${typeof fn}`);
   }
   return function func(...args) {
-    if (args.length >= fn.length) {
+    if (args.length === fn.length) {
       return fn.apply(this, args);
     }
     return function (...args2) {

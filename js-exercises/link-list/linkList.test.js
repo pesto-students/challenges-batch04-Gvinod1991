@@ -58,9 +58,12 @@ describe('LinkList', () => {
   test('should delete value', () => {
     list.append('Satyam');
     list.append('sidhartha');
-    list.delete('sidhartha');
-    expect(list.length()).toBe(1);
-    expect(list.contains('sidhartha')).toBeFalsy();
+    list.append('rahul');
+    list.delete('test');
+    expect(list.length()).toBe(3);
+    list.delete('rahul');
+    expect(list.length()).toBe(2);
+    //expect(list.contains('sidhartha')).toBeFalsy();
   });
 
   test('should traverse values', () => {

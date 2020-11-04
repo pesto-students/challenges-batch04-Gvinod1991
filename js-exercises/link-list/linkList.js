@@ -6,7 +6,7 @@ export default class LinkList {
   }
 
   prepend(value) {
-    if (this.head === null) {
+    if (!this.head) {
       this.head = new LinkListNode(value);
     } else {
       this.head = new LinkListNode(value, this.head);
@@ -26,9 +26,23 @@ export default class LinkList {
     }
   }
 
-  // delete(value) {
-  //   // code here
-  // }
+  delete(value) {
+    if (!this.head) {
+      return;
+    }
+    if (this.head.value === value) {
+      return;
+    }
+    let prevNode = null;
+    let currentNode = this.head;
+    while (currentNode && currentNode.value !== value) {
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    if (currentNode) {
+      prevNode.next = currentNode.next;
+    }
+  }
 
   traverse() {
     let current = this.head;
@@ -40,9 +54,16 @@ export default class LinkList {
     return traversedData;
   }
 
-  // contains(value) {
-  //   // code here
-  // }
+  contains(value) {
+    let current = this.head;
+    while (current && current.value !== value) {
+      current = current.next;
+    }
+    if (current) {
+      return true;
+    }
+    return false;
+  }
 
   length() {
     let count = 0;

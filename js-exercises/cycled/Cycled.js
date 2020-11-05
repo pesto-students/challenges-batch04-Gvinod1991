@@ -1,26 +1,27 @@
 class Cycled {
-    constructor(arr){
-        this.arr=arr;
-    }
-    *arrGenerator() {
-        for (const element of this.arr) {
-            yield element;
-        }
-    }
-    current(){
-        const gen=this.arrGenerator();
-        const result=gen.next();
-        return result.value;
-    }
-    next(){
-        let gen= this.arrGenerator();
-        let result= gen.next();
-        while(!result.done){
+  constructor(arr) {
+    this.arr = arr;
+    this.gen = this.arrGenerator(this.arr);
+  }
 
-            result=gen.next();
-        }
-        return result.value
+  *arrGenerator(steps) {
+    let index = 0;
+    while (true) {
+      yield steps[index];
+      index = (index + 1) % steps.length;
     }
+  }
+
+  current() {
+    if (this._current) {
+      return this._current;
+    }
+    this._current = this.gen.next().value;
+    return this._current;
+  }
+
+  next() {
+    this._current = this.gen.next().value;
+  }
 }
-const c = new Cycled([1,2,3]);
 export { Cycled };

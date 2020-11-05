@@ -32,6 +32,7 @@ function updateInventory(...args) {
   });
   updatedInventory = updatedInventory.sort(([value1, key1],
    [value2, key2]) => key1 < key2 ? -1 : 1);
+   
   return updatedInventory;
 }
 

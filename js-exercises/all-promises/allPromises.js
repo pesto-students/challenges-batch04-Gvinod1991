@@ -9,7 +9,7 @@ const allPromises = promisesArgs => {
   return new Promise((resolve, reject) => {
     const results = [];
     let completedResolves = 0;
-    promisesArgs = [].slice.call(promisesArgs);
+    promisesArgs = Array.prototype.slice.call(promisesArgs);
     promisesArgs.map((value, i) => {
       Promise.resolve(value).then((result) => {
         results[i] = result;

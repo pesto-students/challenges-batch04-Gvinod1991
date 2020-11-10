@@ -18,7 +18,7 @@ describe('allPromises', () => {
     expect(()=>allPromises({})).toThrow();
   });
 
-  test('Promise call should return an array of values from async promises', () => {
+  test('Promise call should return an array of values from async functions', () => {
     const p1 = new Promise(resolve => setTimeout(() => resolve(1),3000));
     const p2 = new Promise(resolve => setTimeout(() => resolve(10), 5000));
     const p3 = new Promise(resolve => setTimeout(() => resolve(3), 1000));
